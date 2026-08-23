@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { colors, spacing } from '../theme/colors';
 import { Button } from '../components';
 
-export const Navigation: React.FC<{ currentPage: string; onNavigate: (page: string) => void }> = ({
-  currentPage,
-  onNavigate,
-}) => {
+export const Navigation: React.FC<{
+  currentPage: string;
+  onNavigate: (page: string) => void;
+  onLogout: () => void;
+}> = ({ currentPage, onNavigate, onLogout }) => {
   return (
     <nav
       style={{
@@ -46,7 +47,7 @@ export const Navigation: React.FC<{ currentPage: string; onNavigate: (page: stri
         ))}
       </div>
 
-      <Button variant="ghost" size="sm">
+      <Button variant="ghost" size="sm" onClick={onLogout}>
         登出
       </Button>
     </nav>
